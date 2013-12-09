@@ -31,7 +31,6 @@ describe "Shows" do
       liked_count = find("#liked_count_#{@show.id}").text.to_i
       click_link "like_#{@show.id}"
       page.should have_content "Liked!"
-      @show.reload
       find("#liked_count_#{@show.id}").text.to_i.should == liked_count + 1
     end
   end
@@ -43,7 +42,6 @@ describe "Shows" do
       unliked_count = find("#unliked_count_#{@show.id}").text.to_i
       click_link "unlike_#{@show.id}"
       page.should have_content "Unliked!"
-      @show.reload
       find("#unliked_count_#{@show.id}").text.to_i.should == unliked_count + 1
     end
   end
