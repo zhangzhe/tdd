@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813233610) do
+ActiveRecord::Schema.define(version: 20131209073001) do
 
   create_table "shows", force: true do |t|
     t.string   "name"
     t.string   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "like_count",    default: 0
+    t.integer  "liked_count",   default: 0
+    t.integer  "unliked_count", default: 0
   end
 
 end

@@ -16,4 +16,12 @@ describe "shows" do
   it "should route /shows to shows#create" do
     {:post => '/shows'}.should route_to(:controller => "shows", :action => "create")
   end
+
+  it "should route /like to shows#like" do
+    {:post => '/shows/1/like'}.should route_to(:controller => "shows", :action => "like", :id => "1")
+  end
+
+  it "should route /unlike to shows#unlike" do
+    {:post => '/shows/1/unlike'}.should route_to(:controller => "shows", :action => "unlike", :id => "1")
+  end
 end

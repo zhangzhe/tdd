@@ -18,4 +18,16 @@ class ShowsController < ApplicationController
       head(:unprocessable_entity)
     end
   end
+
+  def like
+    @show = Show.find(params[:id])
+    @show.like!
+    redirect_to :back, :notice => "Liked!"
+  end
+
+  def unlike
+    @show = Show.find(params[:id])
+    @show.unlike!
+    redirect_to :back, :notice => "Unliked!"
+  end
 end

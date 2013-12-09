@@ -9,3 +9,19 @@ describe Show do
     show.valid?
   end
 end
+
+describe "like!" do
+  it "should plus like_count by 1 when called" do
+    show = FactoryGirl.create(:show)
+    expect{show.like!}.to change{show.liked_count}.from(0).to(1)
+    expect{show.like!}.to change{show.liked_count}.by(1)
+  end
+end
+
+describe "unlike!" do
+  it "should plus unlike_count by 1 when called" do
+    show = FactoryGirl.create(:show)
+    expect{show.unlike!}.to change{show.unliked_count}.from(0).to(1)
+    expect{show.unlike!}.to change{show.unliked_count}.by(1)
+  end
+end
